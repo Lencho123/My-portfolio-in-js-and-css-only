@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lencho-portifolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">MyLogo</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="right-icons">
+          <div class="hamburger" onclick="openNav()">☰</div>
+          <div class="mode-toggle" onclick="toggleMode()">🌙</div>
+        </div>
+      </nav>
+
+      <!-- Mobile Sidebar -->
+      <div class="mobile-nav" id="mobileNav">
+        <div class="close-btn" onclick="closeNav()">✖</div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Home Page -->
+      <section id="home" class="home">
+        <h3>
+          Hello! <br />
+          My name is <span>Lencho</span>
+        </h3>
+        <h5>I am Front-End Developer</h5>
+
+        <button><a href="#about">Know more &rightarrow;</a></button>
+      </section>
+
+      <!-- About me -->
+      <section class="about" id="about">
+        <h3>About Me</h3>
+        <h5>I am Lencho, Front-end developer</h5>
+
+        <p>
+          I am Lencho Lachisa, a passionate front-end developer specializing in
+          React, Next.js, and TypeScript. I take pride in writing clean,
+          efficient, and maintainable code, always prioritizing accessibility,
+          performance, and interactivity to create seamless user experiences.
+        </p>
+        <p>
+          My focus is on building highly efficient and accessible web
+          applications that meet modern web standards. If you're looking for a
+          dedicated developer to bring your vision to life, I am here to
+          collaborate and create something exceptional.
+        </p>
+
+        <div class="home-card">
+          <ul>
+            <li>Name: <span>Lencho</span></li>
+            <li>Job: <span>Front end developer</span></li>
+            <li>Freelance: <span>Available</span></li>
+            <li>City: <span> Adama </span></li>
+          </ul>
+          <div class="buttons">
+            <button>Download Cv</button>
+            <button>Hire Me</button>
+          </div>
+        </div>
+        <div>
+          <h6>Experience</h6>
+          <p>
+            Throughout my journey, I have worked on various projects that have
+            strengthened my skills and confirmed that I am on the right path in
+            my career. In addition to my practical experience, I am about to
+            graduate with a degree in Computer Science and Engineering, where I
+            have gained a profound understanding of computing principles.
+          </p>
+        </div>
+        <div class="education">
+          <h6>Education</h6>
+          <p>
+            Beyond front-end development, my Computer Science and Engineering
+            education has given me a profound understanding of core computing
+            concepts, including security, databases, APIs and system
+            architecture. This allows me to build secure, and scalable web
+            applications while ensuring smooth integration between the front end
+            and back end.
+          </p>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="service" class="service">
+        <h3>Services</h3>
+        <div class="service-card">
+          <div class="service-text">
+            <h5>Front-End development</h5>
+            <p>
+              I specialize in creating responsive, interactive, and web
+              applications using React, Next.js, and TypeScript. Focuses on
+              usability, I making applications intuitive.
+            </p>
+          </div>
+          <div class="service-image">
+            <img src="/bank-dash.png" alt="My service showcase" />
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-text">
+            <h5>Web Application Optimization:</h5>
+            <p>
+              I enhance the performance of web applications by optimizing
+              loading speed, improving accessibility, and ensuring smooth
+              interactions.
+            </p>
+          </div>
+          <div class="service-image">
+            <img src="/bank-dash.png" alt="My service showcase" />
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-text">
+            <h5>Clean & Scalable Code:</h5>
+            <p>
+              I write maintainable and scalable code that ensures your project
+              is easy to update and extend and ensure your applications
+              future-proof.
+            </p>
+          </div>
+          <div class="service-image">
+            <img src="/bank-dash.png" alt="My service showcase" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Portifolio section -->
+      <section id="portfolio" class="portfolio">
+        <h3>Portfolio</h3>
+        <h5>My Projects:</h5>
+
+        <div class="portfolio-container">
+          <!-- Project 1 -->
+          <div class="portfolio-card">
+            <h4>BankDash Website</h4>
+            <img src="/bank-dash.png" alt="BankDash Website" />
+            <a
+              target="_blank"
+              href="https://lencho123.github.io/BankDash-in-reactJS/"
+              class="overlay"
+            >
+              <div class="eye-icon">👁</div>
+            </a>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="portfolio-card">
+            <h4>Quiz App</h4>
+            <img src="/quiz-app.png" alt="Quiz App" />
+            <a
+              target="_blank"
+              href="https://lencho123.github.io/Quiz-App01-with-React-JS/"
+              class="overlay"
+            >
+              <div class="eye-icon">👁</div>
+            </a>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="portfolio-card">
+            <h4>Google Form with ReactJs</h4>
+            <img src="/google-form.png" alt="Google Form" />
+            <a
+              target="_blank"
+              href="https://lencho123.github.io/Google-form-in-react/"
+              class="overlay"
+            >
+              <div class="eye-icon">👁</div>
+            </a>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="portfolio-card">
+            <h4>Others</h4>
+            <img src="/leetcode.png" alt="Others" />
+            <a
+              target="_blank"
+              href="https://github.com/Lencho123/A2SV-G-6-Solved-Problems"
+              class="overlay"
+            >
+              <div class="eye-icon">👁</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact me section -->
+      <section id="contact" class="contact-section">
+        <h2 class="title">Contact Me</h2>
+        <h3 class="subtitle">
+          Feel free to reach out; I am ready to respond to you!
+        </h3>
+        <div class="contact-container">
+          <div class="contact-box">
+            <img src="phone-icon.png" alt="Phone" class="contact-icon" />
+            <p>Call me on</p>
+            <p>+251 910-510-428</p>
+          </div>
+
+          <div class="contact-box">
+            <a
+              href="http://google.com/maps/search/astu+on+google+map/@8.5654327,39.2946782,14z?hl=am&entry=ttu&g_ep=EgoyMDI1MDMwMi4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"
+            >
+              <img
+                src="location-icon.png"
+                alt="Location"
+                class="contact-icon"
+              />
+            </a>
+            <p>Address</p>
+            <p>ASTU, Adama, Oromia</p>
+          </div>
+
+          <div class="contact-box">
+            <img src="email-icon.png" alt="Email" class="contact-icon" />
+            <p>Email</p>
+            <p>lencholachisa11@gmail.com</p>
+          </div>
+        </div>
+
+        <form action="/" method="post" class="contact-form">
+          <fieldset>
+            <legend>Leave Your Message Below</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment" rows="4"></textarea>
+
+            <button type="submit" class="submit-btn">Submit</button>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+    <script>
+      function openNav() {
+        document.getElementById("mobileNav").classList.add("active");
+      }
+
+      function closeNav() {
+        document.getElementById("mobileNav").classList.remove("active");
+      }
+
+      function toggleMode() {
+        const body = document.body;
+        const modeIcon = document.querySelector(".mode-toggle");
+
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+          modeIcon.textContent = "☀"; // Light mode icon
+        } else {
+          modeIcon.textContent = "🌙"; // Dark mode icon
+        }
+      }
+    </script>
+  </body>
+</html>
