@@ -53,6 +53,13 @@ header {
   left: 0;
   z-index: 100;
 }
+.header-right {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1.5%;
+}
 
 /* Navbar */
 .navbar {
