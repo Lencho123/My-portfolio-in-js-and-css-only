@@ -16,6 +16,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -74,6 +75,25 @@
                             <li>Responsive Design</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>ASTU CSE Student</h3>
+                    <p>I am currently pursuing my degree in Computer Science and Engineering at Adama Science and Technology University. Alongside my studies, I am actively developing my skills in web development and data science.</p>
+                </div>
+                <div class="education-card">
+                    <i class="fas fa-code"></i>
+                    <h3>A2SVian</h3>
+                    <p>As an Africa to Silicon Valley (A2SV) participant, I am honing my competitive programming skills and preparing for technical interviews. This program is helping me develop strong problem-solving abilities and technical expertise.</p>
                 </div>
             </div>
         </div>
@@ -175,18 +195,19 @@
         <div class="container">
             <h2 class="section-title">Contact Me</h2>
             <div class="contact-content">
-                <form class="contact-form">
+                <form id="contactForm" class="contact-form">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Your Message" required></textarea>
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                     </div>
                     <button type="submit" class="submit-button">Send Message</button>
                 </form>
+                <div id="formStatus" class="form-status"></div>
                 <div class="contact-info">
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>

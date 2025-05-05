@@ -1,17 +1,5 @@
 /* Root Variables */
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --card-bg: #f8f9fa;
-    --border-color: #dee2e6;
-    --hover-color: #e9ecef;
-    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Dark Mode Variables */
-body.dark-mode {
     --primary-color: #4dabf7;
     --secondary-color: #adb5bd;
     --bg-color: #1a1a1a;
@@ -20,6 +8,18 @@ body.dark-mode {
     --border-color: #404040;
     --hover-color: #3d3d3d;
     --shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Light Mode Variables */
+body.light-mode {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #f8f9fa;
+    --border-color: #dee2e6;
+    --hover-color: #e9ecef;
+    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Global Styles */
@@ -165,8 +165,8 @@ body {
 /* Home Section */
 #home {
     text-align: center;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    color: white;
+    background: var(--bg-color);
+    color: var(--text-color);
     position: relative;
     overflow: hidden;
 }
@@ -262,7 +262,7 @@ body {
 .mouse {
     width: 30px;
     height: 50px;
-    border: 2px solid white;
+    border: 2px solid var(--text-color);
     border-radius: 15px;
     position: relative;
 }
@@ -270,7 +270,7 @@ body {
 .wheel {
     width: 4px;
     height: 8px;
-    background-color: white;
+    background-color: var(--text-color);
     border-radius: 2px;
     position: absolute;
     top: 8px;
@@ -282,8 +282,8 @@ body {
 .arrow {
     width: 20px;
     height: 20px;
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
+    border-right: 2px solid var(--text-color);
+    border-bottom: 2px solid var(--text-color);
     transform: rotate(45deg);
     animation: arrow 2s ease infinite;
 }
@@ -340,8 +340,7 @@ body {
 
 /* About Section */
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
     gap: 2rem;
     align-items: center;
 }
@@ -366,6 +365,45 @@ body {
     transform: translateY(-3px);
     background-color: var(--primary-color);
     color: white;
+}
+
+/* Education Section Styles */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.education-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.education-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.education-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.education-card p {
+    color: var(--secondary-color);
+    line-height: 1.6;
 }
 
 /* Portfolio Section */
@@ -524,6 +562,27 @@ body {
 .submit-button:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
+}
+
+.form-status {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    display: none;
+}
+
+.form-status.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-status.error {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
 .contact-info {

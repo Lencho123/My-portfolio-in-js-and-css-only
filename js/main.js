@@ -36,27 +36,31 @@ const body = document.body;
 // Check for saved theme preference
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
-    body.classList.toggle('dark-mode', savedTheme === 'dark');
+    body.classList.toggle('light-mode', savedTheme === 'light');
+    updateThemeIcon();
+} else {
+    // Set dark theme as default
+    body.classList.remove('light-mode');
     updateThemeIcon();
 }
 
 themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
+    body.classList.toggle('light-mode');
     updateThemeIcon();
     
     // Save theme preference
-    const isDarkMode = body.classList.contains('dark-mode');
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    const isLightMode = body.classList.contains('light-mode');
+    localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
 });
 
 function updateThemeIcon() {
     const icon = themeToggle.querySelector('i');
-    if (body.classList.contains('dark-mode')) {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    } else {
+    if (body.classList.contains('light-mode')) {
         icon.classList.remove('fa-sun');
         icon.classList.add('fa-moon');
+    } else {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
     }
 }
 
@@ -168,4 +172,66 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all sections
 document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
-}); 
+});
+
+// Contact Form Submission
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+// Replace this URL with your Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw4otjSF6_n0rkueCNlhyXEYJsPDu9cjMZsuh2EtDMxSLmrX0517CgbUWfKRJPppN7XYQ/exec';
+
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
+
+    try {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const result = await response.json();
+
+        if (result.result === 'success') {
+            formStatus.textContent = 'Message sent successfully!';
+            formStatus.className = 'form-status success';
+            contactForm.reset();
+        } else {
+            throw new Error('Failed to send message');
+        }
+    } catch (error) {
+        formStatus.textContent = 'Failed to send message. Please try again.';
+        formStatus.className = 'form-status error';
+    }
+
+    // Hide status message after 5 seconds
+    setTimeout(() => {
+        formStatus.style.display = 'none';
+    }, 5000);
+});
+
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = JSON.parse(e.postData.contents);
+  
+  var timestamp = new Date();
+  var name = data.name;
+  var email = data.email;
+  var message = data.message;
+  
+  sheet.appendRow([timestamp, name, email, message]);
+  
+  return ContentService.createTextOutput(JSON.stringify({
+    'result': 'success',
+    'row': sheet.getLastRow()
+  })).setMimeType(ContentService.MimeType.JSON);
+} 
