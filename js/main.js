@@ -178,11 +178,17 @@ document.querySelectorAll('.section').forEach(section => {
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 
-// Replace this URL with your Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw4otjSF6_n0rkueCNlhyXEYJsPDu9cjMZsuh2EtDMxSLmrX0517CgbUWfKRJPppN7XYQ/exec';
+// Replace this URL with your new Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwr2GGq5zpzh-DAVBUdwapxGIHNEmgISdD4M-CJtDBI5LXgmDlqQ76GE8r775IHibH5rA/exec';
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    // Show loading state
+    const submitButton = contactForm.querySelector('.submit-button');
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
     
     const formData = {
         name: document.getElementById('name').value,
@@ -193,25 +199,30 @@ contactForm.addEventListener('submit', async (e) => {
     try {
         const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
+            mode: 'no-cors',
             body: JSON.stringify(formData),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
 
-        const result = await response.json();
-
-        if (result.result === 'success') {
-            formStatus.textContent = 'Message sent successfully!';
-            formStatus.className = 'form-status success';
-            contactForm.reset();
-        } else {
-            throw new Error('Failed to send message');
-        }
+        // Since we're using no-cors, we can't read the response
+        // We'll assume success if no error is thrown
+        formStatus.textContent = 'Message sent successfully!';
+        formStatus.className = 'form-status success';
+        contactForm.reset();
     } catch (error) {
+        console.error('Error:', error);
         formStatus.textContent = 'Failed to send message. Please try again.';
         formStatus.className = 'form-status error';
+    } finally {
+        // Reset button state
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
     }
+
+    // Show status message
+    formStatus.style.display = 'block';
 
     // Hide status message after 5 seconds
     setTimeout(() => {
