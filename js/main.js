@@ -178,7 +178,7 @@ document.querySelectorAll('.section').forEach(section => {
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 
-// Replace this URL with your new Google Apps Script Web App URL
+//  Google Apps Script Web App URL
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwr2GGq5zpzh-DAVBUdwapxGIHNEmgISdD4M-CJtDBI5LXgmDlqQ76GE8r775IHibH5rA/exec';
 
 contactForm.addEventListener('submit', async (e) => {
