@@ -206,7 +206,6 @@ contactForm.addEventListener('submit', async (e) => {
             }
         });
 
-        // Since we're using no-cors, we can't read the response
         // We'll assume success if no error is thrown
         formStatus.textContent = 'Message sent successfully!';
         formStatus.className = 'form-status success';
